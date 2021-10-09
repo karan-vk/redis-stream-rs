@@ -1,6 +1,7 @@
 use anyhow::{Context, Result};
 use redis::streams::{StreamReadOptions, StreamReadReply};
 use redis::{Commands, Connection, RedisResult, Value};
+use std::borrow::Borrow;
 use std::collections::HashMap;
 
 pub use super::types::{ConsumerOpts, StartPosition};
@@ -48,7 +49,7 @@ where
     if let Some((group_name, _)) = &group {
       ensure_stream_and_group(
         redis,
-        &stream,
+        &stream.borrow(),
         group_name.as_ref(),
         &group_create_pos.unwrap(),
         create_stream_if_not_exists,
