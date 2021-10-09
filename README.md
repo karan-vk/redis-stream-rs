@@ -1,6 +1,6 @@
 # Redis Stream
 
-[![Build Status](https://travis-ci.org/klaxit/redis-stream-rs.svg?branch=master)](https://travis-ci.org/klaxit/redis-stream-rs)
+[![Build Status](https://app.travis-ci.com/karan-vk/redis-stream-rs.svg?branch=master)](https://app.travis-ci.com/karan-vk/redis-stream-rs)
 [![crates.io](http://meritbadge.herokuapp.com/redis-stream)](https://crates.io/crates/redis-stream)
 
 A Rust high-level library to consume data from Redis streams.

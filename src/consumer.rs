@@ -232,7 +232,7 @@ mod tests {
   #[allow(clippy::unnecessary_wraps)]
   fn print_message(_id: &str, message: &Message) -> Result<()> {
     for (k, v) in message {
-      println!("{}: {}", k, String::from_redis_value(&v).unwrap());
+      println!("{}: {}", k, String::from_redis_value(v).unwrap());
     }
     Ok(())
   }
@@ -259,7 +259,7 @@ mod tests {
     let opts = ConsumerOpts::default()
       .create_stream_if_not_exists(true)
       .group(group_name, consumer_name);
-    Consumer::init(&mut redis_c, &stream, print_message, opts).unwrap();
+    Consumer::init(&mut redis_c, stream, print_message, opts).unwrap();
     assert!(key_exists(&mut redis, stream));
     // with length = 0
     let len: usize = redis.xlen(stream).unwrap();
